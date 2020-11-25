@@ -5,8 +5,7 @@ import Weather from './Weather';
 
 function App() {
   const [weather,setWeather] = useState([])
-  const APIKEY = '39f9e0098e77a223f0e6430f2535b2e4'
-
+  const APIKEY = process.env.APIKEYS;
   async function fetchData(e) {
     const city = e.target.elements.city.value
     const country = e.target.elements.country.value
@@ -20,7 +19,7 @@ function App() {
         city: apiData.city,
         country: apiData.sys.country,
         description: apiData.weather[0].description,
-        temperature: apiData.main.temp,
+        temperature: Math.round(apiData.main.temp * 9/5 - 459.67),
         error:""
       }
       )} else {
