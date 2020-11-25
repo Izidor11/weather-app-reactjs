@@ -9,7 +9,7 @@ const Weather = ({description, city, country, error, temperature}) => {
         */
         <div>
             {city && country && <p>{city}, {country}</p>}
-            {temperature && <p>{temperature}</p>}
+            {temperature && <p>{temperature} °C</p>}
             {description && <p> {description}</p>}
             {error && <p>{error}</p>}
         </div>
